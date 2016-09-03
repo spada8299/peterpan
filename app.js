@@ -8,11 +8,23 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+// Database
+var monk = require('monk');
+var mongodb_URI = process.env.MONGODBURI || 'mongodb://localhost:27017/test';
+
+var db = monk(mongodb_URI);
+
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+// Make our db accessible to our router
+app.use(function(req, res, next) {
+  req.db = db;
+  next();
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
