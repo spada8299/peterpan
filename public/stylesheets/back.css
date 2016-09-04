@@ -1,0 +1,94 @@
+/* init */
+* {
+	margin: 0;
+}
+
+/* back */
+body {
+	background-color: #6947ad;
+	min-width: 650px;
+}
+
+header {
+    padding-left: 40px;
+    color: white;
+    background-color: #3e2b65;
+}
+
+.title {
+	display: inline-block;
+	font-size: x-large;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.tag {
+	display: inline-block;
+	padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.tag:hover {
+	cursor: pointer;
+	border-bottom: white 2px solid;
+	background-color: #6947ad;
+}
+
+.content {
+	margin-left: 10%;
+    margin-top: 50px;
+}
+
+.q {
+	font-size: 2em;
+	color: white;
+}
+
+input {
+	font-size: 1.5em;
+    border-radius: 8px;
+    background-color: #d7c8e2;
+    border: none;
+    padding: 1.5%;
+}
+
+.add {
+	font-size: 2em;
+    margin-left: 5%;
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: #009688;
+    color: white;
+}
+
+.addRow {
+	margin-top: 2em;
+}
+
+.cancel {
+	font-size: 2em;
+    margin-left: 5%;
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: #ec3939;
+    color: white;
+}
+
+.add:hover, .cancel:hover {
+	cursor: pointer;
+}
+
+.ybtn {
+	margin-top: 2em;
+    margin-left: 15%;
+    font-size: 1.5em;
+    padding: 1.5%;
+    border-radius: 8px;
+    background-color: #02bfae;
+    border: none;
+    color: white;
+}
