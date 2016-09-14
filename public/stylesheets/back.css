@@ -128,3 +128,23 @@ tbody {
 	background-color: #d7c8e2;
     font-size: 1.5em;
 }
+
+.mod {
+	cursor: pointer;
+	color: #c37206;
+}
+
+.mod:hover {
+	color: white;
+	background-color: #c37206;
+}
+
+.del {
+	cursor: pointer;
+	color: #de0000;
+}
+
+.del:hover {
+	color: white;
+	background-color: #de0000;
+}

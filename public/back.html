@@ -20,20 +20,15 @@
 		<div class="content">
 			<div>
 				<span class="q">序號：</span>
-				<input type="text" name="num" placeholder="請輸入序號...">
+				<input type="text" name="num" class="num" placeholder="請輸入序號...">
 				<span class="add">+</span>
 			</div>
-			<div class="addRow">
+<!-- 			<div class="addRow">
 				<span class="q">序號：</span>
-				<input type="text" name="num" placeholder="請輸入序號...">
+				<input type="text" name="num" class="num" placeholder="請輸入序號...">
 				<span class="cancel">x</span>
-			</div>
-			<div class="addRow">
-				<span class="q">序號：</span>
-				<input type="text" name="num" placeholder="請輸入序號...">
-				<span class="cancel">x</span>
-			</div>
-			<button type="submit" class="ybtn">新增</button>
+			</div> -->
+			<button type="submit" class="ybtn" id="numSubmit">新增</button>
 		</div>
 	</section>
 
@@ -49,14 +44,14 @@
 						<td>刪除</td>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
+				<tbody id="numList">
+					<!-- <tr>
 						<td>123</td>
 						<td>not yet</td>
 						<td> </td>
-						<td>修改</td>
-						<td>刪除</td>
-					</tr>
+						<td class="mod">修改</td>
+						<td class="del">刪除</td>
+					</tr> -->
 				</tbody>
 			</table>
 		</div>
