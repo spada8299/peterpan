@@ -36,8 +36,7 @@ $(document).ready(function() {
 			} else if (res.data === "1") {
 				// suc
 				alert("新增成功");
-				cleanTable();
-				loadTable();
+				window.location.reload();
 			}
 		});
 	});
