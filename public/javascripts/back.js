@@ -41,6 +41,19 @@ $(document).ready(function() {
 	});
 
 	// page2
+	loadTable();
+});
+
+$('#tag1').click(function() {
+	$('#page1').fadeIn();
+	$('#page2').hide();
+});
+$('#tag2').click(function() {
+	$('#page1').hide();
+	$('#page2').fadeIn();
+});
+
+function loadTable() {
 	$.ajax({
 		url: '/users/',
 		method: 'GET',
@@ -52,26 +65,59 @@ $(document).ready(function() {
 		for (var i = 0; i < con.length; i++) {
 			if (con[i].email == undefined) {
 				$('#numList').append('<tr rel="'+ con[i]._id +'">\
-						<td>'+ con[i].num +'</td>\
+						<td><span class="numText">'+ con[i].num +'</span><input type="text" class="numInput" value="'+ con[i].num +'"></td>\
 						<td>not yet</td>\
 						<td> </td>\
-						<td class="mod">修改</td>\
+						<td><span class="mod">修改</span><span class="modCancel">取消</span><span class="modConfirm">確定</span></td>\
 						<td class="del">刪除</td>\
 					</tr>');
 			}
 		}
 
 		// set event to .mod and .del
-		$('.mod').click();
+		$('.mod').click(function() {
+			$(this).parent().parent().find('.numText').hide();
+			$(this).parent().parent().find('.numInput').fadeIn();
+			$(this).parent().parent().find('.numInput').focus();
+			$(this).parent().find('.modCancel').fadeIn();
+			$(this).parent().find('.modConfirm').fadeIn();
+			$(this).parent().find('.mod').hide();
+		});
+		$('.modCancel').click(function() {
+			$(this).parent().find('.mod').fadeIn();
+			$(this).parent().find('.modConfirm').hide();
+			$(this).parent().parent().find('.numText').fadeIn();
+			$(this).parent().parent().find('.numInput').hide();
+			$(this).hide();
+		});
+		$('.modConfirm').click(function() {
+			console.log($('.numInput').val());
+			console.log($(this).parent().parent().attr('rel'));
+			var updateNum = $('.numInput').val();
+			var rel = $(this).parent().parent().attr('rel');
+			$.ajax({
+				data: JSON.stringify({'num': updateNum}),
+				url: '/users/'+ rel,
+				method: 'PUT',
+				contentType: 'application/json'
+			}).done(function(res) {
+				console.log(res);
+				if (res.data === "0") {
+					// err
+					alert("更新失敗，請稍候再試");
+					cleanTable();
+					loadTable();
+				} else if (res.data === "1") {
+					// suc
+					cleanTable();
+					loadTable();
+				}
+			});
+		});
 		$('.del').click();
 	});
-});
+}
 
-$('#tag1').click(function() {
-	$('#page1').fadeIn();
-	$('#page2').hide();
-});
-$('#tag2').click(function() {
-	$('#page1').hide();
-	$('#page2').fadeIn();
-});
+function cleanTable() {
+	$('#numList').empty();
+}

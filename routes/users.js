@@ -30,4 +30,21 @@ router.post('/', function(req, res, next) {
 	});
 });
 
+router.put('/:id', function(req, res, next) {
+	var db = req.db;
+	var updateNum = req.body;
+	var list = db.get('numList');
+	console.log(req.body);
+	console.log(req.params.id);
+	list.update({_id: req.params.id}, updateNum, {}, function(e, d) {
+		if (e != null) {
+			console.log(e);
+			res.json({data: '0'});
+		} else {
+			console.log(d);
+			res.json({data: '1'});
+		}
+	});
+});
+
 module.exports = router;

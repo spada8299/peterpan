@@ -132,11 +132,36 @@ tbody {
 .mod {
 	cursor: pointer;
 	color: #c37206;
+	padding: 20px;
 }
 
 .mod:hover {
 	color: white;
 	background-color: #c37206;
+}
+
+.modCancel {
+	cursor: pointer;
+	color: red;
+	padding: 20px;
+	display: none;
+}
+
+.modCancel:hover {
+	color: white;
+	background-color: red;
+}
+
+.modConfirm {
+	cursor: pointer;
+	color: green;
+	padding: 20px;
+	display: none;
+}
+
+.modConfirm:hover {
+	color: white;
+	background-color: green;
 }
 
 .del {
@@ -147,4 +172,12 @@ tbody {
 .del:hover {
 	color: white;
 	background-color: #de0000;
+}
+
+.numInput {
+	background-color: #6947ad;
+	color: white;
+	display: none;
+	font-size: 1em;
+	width: 50%;
 }
