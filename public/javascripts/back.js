@@ -32,10 +32,12 @@ $(document).ready(function() {
 			console.log('ajax msg: '+ res.data);
 			if (res.data === "0") {
 				// err
-				alert("新增失敗，請稍等一會兒後重試一次");
+				alert("新增失敗，請稍後再試");
 			} else if (res.data === "1") {
 				// suc
 				alert("新增成功");
+				cleanTable();
+				loadTable();
 			}
 		});
 	});
@@ -63,7 +65,7 @@ function loadTable() {
 		console.log(res.content);
 		var con = res.content;
 		for (var i = 0; i < con.length; i++) {
-			if (con[i].email == undefined) {
+			if (con[i].content == undefined) {
 				$('#numList').append('<tr rel="'+ con[i]._id +'">\
 						<td><span class="numText">'+ con[i].num +'</span><input type="text" class="numInput" value="'+ con[i].num +'"></td>\
 						<td>not yet</td>\
@@ -71,10 +73,18 @@ function loadTable() {
 						<td><span class="mod">修改</span><span class="modCancel">取消</span><span class="modConfirm">確定</span></td>\
 						<td class="del">刪除</td>\
 					</tr>');
+			} else {
+				$('#numList').append('<tr rel="'+ con[i]._id +'">\
+						<td><span class="numText">'+ con[i].num +'</span><input type="text" class="numInput" value="'+ con[i].num +'"></td>\
+						<td>yes</td>\
+						<td>'+ con[i].content +'</td>\
+						<td><span class="mod">修改</span><span class="modCancel">取消</span><span class="modConfirm">確定</span></td>\
+						<td class="del">刪除</td>\
+					</tr>');
 			}
 		}
 
-		// set event to .mod and .del
+		// set event to .mod
 		$('.mod').click(function() {
 			$(this).parent().parent().find('.numText').hide();
 			$(this).parent().parent().find('.numInput').fadeIn();
@@ -104,7 +114,7 @@ function loadTable() {
 				console.log(res);
 				if (res.data === "0") {
 					// err
-					alert("更新失敗，請稍候再試");
+					alert("修改失敗，請稍候再試");
 					cleanTable();
 					loadTable();
 				} else if (res.data === "1") {
@@ -114,7 +124,33 @@ function loadTable() {
 				}
 			});
 		});
-		$('.del').click();
+
+		// set event to .del
+		$('.del').click(function() {
+			if (confirm("確定要移除序號"+ $(this).parent().find('.numText').text() +"?")) {
+				console.log('yes!');
+				var rel = $(this).parent().attr('rel');
+				$.ajax({
+					url: '/users/'+ rel,
+					method: 'DELETE',
+					contentType: 'application/json'
+				}).done(function(res) {
+					console.log(res);
+					if (res.data === "0") {
+						// err
+						alert("刪除失敗，請稍候再試");
+						cleanTable();
+						loadTable();
+					} else if (res.data === "1") {
+						// suc
+						cleanTable();
+						loadTable();
+					}
+				});
+			} else {
+				console.log('no!');
+			}
+		});
 	});
 }
 

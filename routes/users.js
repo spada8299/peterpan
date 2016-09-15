@@ -47,4 +47,20 @@ router.put('/:id', function(req, res, next) {
 	});
 });
 
+router.delete('/:id', function(req, res ,next) {
+	var db = req.db;
+	var deleteId = req.params.id;
+	var list = db.get('numList');
+	console.log(deleteId);
+	list.remove({_id: deleteId}, {}, function(e, d) {
+		if (e != null) {
+			console.log(e);
+			res.json({data: '0'});
+		} else {
+			console.log(d);
+			res.json({data: '1'});
+		}
+	});
+});
+
 module.exports = router;
