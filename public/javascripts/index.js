@@ -30,7 +30,7 @@ $(document).ready(function() {
 			$('#btn3').attr('disabled', false);
 			$('#btnNext').attr('disabled', false);
 			alert('ok!');
-		}, 10000); // 165000
+		}, 1650000);
 	}
 });
 
