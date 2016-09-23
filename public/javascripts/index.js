@@ -3,7 +3,7 @@ var pageNow = 1;
 
 $(document).ready(function() {
 	var pageNow = Number(getValue('pageNow'));
-	console.log(pageNow);
+	// console.log(pageNow);
 
 	if (pageNow === 1 && getValue('pageNow')!= '') {
 		$('#btn2').attr('disabled', false);

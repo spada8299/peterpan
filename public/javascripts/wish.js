@@ -11,7 +11,7 @@ $(document).ready(function() {
 		method: 'GET',
 		contentType: 'application/json'
 	}).done(function(res) {
-		console.log(res);
+		// console.log(res);
 		if (res.data === '1' && res.content.length > 0) {
 			// fill the wish content
 			var con = res.content;
@@ -37,7 +37,7 @@ $('#go').click(function() {
 			method: 'POST',
 			contentType: 'application/json'
 		}).done(function(res) {
-			console.log(res);
+			// console.log(res);
 			if (res.data === '0') {
 				// err
 				alert('檢查序號失敗，請稍候再試');
@@ -57,7 +57,7 @@ $('#go').click(function() {
 });
 
 $('#submit').click(function() {
-	console.log($('#wishText').val());
+	// console.log($('#wishText').val());
 	if (confirm('即將送出您的願望：'+ $('#wishText').val() +'\n注意：單一序號只能許願一次')) {
 		// submit
 		var pack = {
@@ -70,7 +70,7 @@ $('#submit').click(function() {
 			method: 'POST',
 			contentType: 'application/json'
 		}).done(function(res) {
-			console.log(res);
+			// console.log(res);
 			if (res.data === '0') {
 				// err
 				alert('許願失敗，請稍候再試');
@@ -114,7 +114,6 @@ $('#btn2').click(function() {
 $('#btn3').click(function() { });
 
 $('.light').click(function() {
-	console.log($(this).attr('id'));
 	var order = Number($(this).attr('id'));
 	$('#msgText').text(messages[order]);
 	$('#msg').fadeIn();
