@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>范特喜之夢</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/wish.css">
+</head>
+<body>
+	<section id="page3">
+		<p class="start" style="margin-top: 35%;">憑 序 號 進 入 遊 戲 結 局</p>
+		<div class="input">
+			<input type="text" name="num" id="numInput" placeholder="輸入遊戲包裹序號">
+			<button id="go">GO</button>
+		</div>
+	</section>
+	<section id="page4" style="display: none;">
+		<div class="light" id="0" style="left: 10%; top: 2%;">
+			<img src="images/light2.png">
+		</div>
+		<div class="light" id="1" style="left: 50%; top: 7%;">
+			<img src="images/light2.png">
+		</div>
+		<div class="light" id="2" style="top: 15%;">
+			<img src="images/light2.png">
+		</div>
+		<div class="light" id="3" style="left: 30%; top: 20%;">
+			<img src="images/light2.png">
+		</div>
+		<div class="light" id="4" style="left: 8%; top: 38%;">
+			<img src="images/light2.png">
+		</div>
+		<div class="light" id="5" style="left: 60%; top: 40%;">
+			<img src="images/light2.png" style="width: 80%;">
+		</div>
+		<div class="light" id="6" style="left: 35%; top: 50%;">
+			<img src="images/light2.png">
+		</div>
+		<textarea rows="2" cols="50" id="wishText" placeholder="輸入你的願望"></textarea>
+		<button class="btn" id="submit" style="width: 30%; margin-top: 2%;">送出</button>
+		<div class="myLight" id="myLight" style="display: none;">
+			<img src="images/light2.png">
+		</div>
+		<p class="hint" id="hint" style="margin-top: 2%;">注意：單一序號只能許願一次</p>
+	</section>
+	<section id="msg">
+		<div style="margin-top: 70%;">
+			<p style="font-size: 3em; text-align: left; margin-left: 10%;">許願內容：</p>
+			<div style="background-color: rgba(255,255,255,0.8); margin-left: 15%; margin-right: 15%; border-radius: 1em;">
+				<p id="msgText" style="font-size: 4em; color: black; padding: 5%;">test123</p>
+			</div>
+		</div>
+	</section>
+
+	<footer style="margin-top: 2%; margin-bottom: 10%; display:none;">
+		<button class="btn" id="btnPre">回顧故事書結局</button>
+		<button class="btn" id="btn1">1</button>
+		<button class="btn" id="btn2">2</button>
+		<button class="btnAct" id="btn3">3</button>
+		<!-- <button class="btn" id="btnNext">next</button> -->
+	</footer>
+
+	<script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="javascripts/wish.js"></script>
+</body>
+</html>

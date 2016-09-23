@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>范特喜之夢</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/index.css">
+</head>
+<body>
+	<!-- page1、page2 -> index.html -->
+	<!-- page3、page4 -> wish1.html -->
+	<section id="page1">
+		<p class="word" style="margin-top: 10%;">親愛的冒險者們</p>
+		<p class="word" style="margin-left: 10%; margin-right: 10%;">我名叫詹姆士，我要和你們說一個隱藏在大家熟知的故事後、關於彼得潘和我的故事...</p>
+		<!-- youtube video -->
+		<iframe width="853" height="480" style="margin-top: 7%;" src="https://www.youtube.com/embed/w00iI5iEeeA" frameborder="0" allowfullscreen></iframe>
+	</section>
+	<section id="page2" style="display: none;">
+		<!-- pdf file link -->
+		<iframe width="800" height="600" style="margin-top:10%;" src="http://e.issuu.com/embed.html#25355080/36548573" frameborder="0" allowfullscreen></iframe>
+
+		<p class="word" style="margin-top: 7%; margin-left: 10%; margin-right: 10%;">觀賞完結尾影片和文字版故事後，至新的「夢想樹」許下專屬願望。</p>
+		<p class="hint" style="margin-top: 3%; -webkit-text-stroke: 1px black;">亦可憑「博客來票根」向新手書店兌換實體故事小書</p>
+	</section>
+	<!-- <section id="page3" style="display: none;">
+		<p class="start" style="margin-top: 35%;">憑 序 號 進 入 遊 戲 結 局</p>
+		<div class="input">
+			<input type="text" name="num" placeholder="輸入遊戲包裹序號">
+			<button>GO</button>
+		</div>
+	</section>
+	<section id="page4">
+		<img src="images/bubble2.gif">
+		<textarea rows="4" cols="50"></textarea>
+		<p class="hint" style="margin-top: 65%;">注意：單一序號只能許願一次</p>
+	</section> -->
+
+	<footer>
+		<button class="btn" id="btnPre" style="display: none;">回顧上頁影片</button>
+		<button class="btnAct" id="btn1">1</button>
+		<button class="btn" id="btn2" disabled="true">2</button>
+		<button class="btn" id="btn3" disabled="true">3</button>
+		<button class="btn" id="btnNext" disabled="true">ＮＥＸＴ</button>
+	</footer>
+
+	<script type="text/javascript" src="javascripts/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="javascripts/index.js"></script>
+</body>
+</html>
