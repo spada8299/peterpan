@@ -9,10 +9,16 @@ $(document).ready(function() {
 		$('#btn2').attr('disabled', false);
 		$('#btn3').attr('disabled', false);
 		$('#btnNext').attr('disabled', false);
+		$('#btn2').removeClass('btnNo');
+		$('#btn3').removeClass('btnNo');
+		$('#btnNext').removeClass('btnNo');	
 	} else if (pageNow === 2) {
 		$('#btn2').attr('disabled', false);
 		$('#btn3').attr('disabled', false);
 		$('#btnNext').attr('disabled', false);
+		$('#btn2').removeClass('btnNo');
+		$('#btn3').removeClass('btnNo');
+		$('#btnNext').removeClass('btnNo');
 		
 		// show page2
 		$('#page1').hide();
@@ -29,8 +35,10 @@ $(document).ready(function() {
 			$('#btn2').attr('disabled', false);
 			$('#btn3').attr('disabled', false);
 			$('#btnNext').attr('disabled', false);
-			alert('ok!');
-		}, 1650000);
+			$('#btn2').removeClass('btnNo');
+			$('#btn3').removeClass('btnNo');
+			$('#btnNext').removeClass('btnNo');
+		}, 165000);
 	}
 });
 

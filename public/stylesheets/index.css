@@ -53,6 +53,12 @@ footer {
     border-radius: 5px;
 }
 
+.btnNo {
+	background-color: gray; 
+	color: #c1c1c1;
+	border: #c1c1c1 2px solid;
+}
+
 .btnAct {
 	font-size: 2.5em;
     color: black;
