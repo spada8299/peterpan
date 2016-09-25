@@ -128,4 +128,18 @@ router.get('/wish', function(req, res, next) {
 	});
 });
 
+router.get('/wish/:num', function(req, res, next) {
+	var db = req.db;
+	var list = db.get('numList');
+	list.find({ num: req.params.num }, {}, function(e, d) {
+		if (e != null) {
+			console.log(e);
+			res.json({data: '0'});
+		} else {
+			console.log(d);
+			res.json({data: '1', content: d});
+		}
+	});
+});
+
 module.exports = router;

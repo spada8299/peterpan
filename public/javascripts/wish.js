@@ -45,12 +45,33 @@ $('#go').click(function() {
 				// suc
 				$('#page3').hide();
 				$('#page4').fadeIn();
-				$('footer').fadeIn();
 				$('body').css('background-image', 'url("images/background2.gif")');
 			} else if (res.data === '2') {
 				alert('無此序號');
 			} else if (res.data === '3') {
-				alert('此序號已許願過');
+				// alert('此序號已許願過');
+				$('#page3').hide();
+				$('#page4').fadeIn();
+				$('body').css('background-image', 'url("images/background2.gif")');
+				$('#wishText').hide();
+				$('#submit').hide();
+				$('#hint').css('margin-top', 0);
+				$('#myLight').fadeIn();
+				$.ajax({
+					url: '/users/wish/'+ $('#numInput').val(),
+					method: 'GET',
+					contentType: 'application/json'
+				}).done(function(resp) {
+					// console.log(resp);
+					if (resp.data === '0') {
+						// err
+					} else if (resp.data === '1') {
+						$('#myLight').click(function() {
+							$('#msgText').text(resp.content[0].content);
+							$('#msg').fadeIn();
+						});
+					}
+				});
 			}
 		});
 	}
@@ -103,13 +124,13 @@ $('#submit').click(function() {
 });
 
 $('#btnPre').click(function() {
-	window.location.href = 'index.html?pageNow=2';
+	window.location.href = 'index2.html';
 });
 $('#btn1').click(function() {
-	window.location.href = 'index.html?pageNow=1';
+	window.location.href = 'index.html';
 });
 $('#btn2').click(function() {
-	window.location.href = 'index.html?pageNow=2';
+	window.location.href = 'index2.html';
 });
 $('#btn3').click(function() { });
 
@@ -123,4 +144,3 @@ $('#msg').click(function() {
 	$('#msg').fadeOut();
 });
 
-// background-image: url("../images/background2.gif");

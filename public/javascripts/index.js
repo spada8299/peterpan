@@ -1,105 +1,34 @@
 'use strict';
-var pageNow = 1;
+var pageNow = window.location.pathname;
 
 $(document).ready(function() {
-	var pageNow = Number(getValue('pageNow'));
-	// console.log(pageNow);
-
-	if (pageNow === 1 && getValue('pageNow')!= '') {
-		$('#btn2').attr('disabled', false);
-		$('#btn3').attr('disabled', false);
-		$('#btnNext').attr('disabled', false);
-		$('#btn2').removeClass('btnNo');
-		$('#btn3').removeClass('btnNo');
-		$('#btnNext').removeClass('btnNo');	
-	} else if (pageNow === 2) {
-		$('#btn2').attr('disabled', false);
-		$('#btn3').attr('disabled', false);
-		$('#btnNext').attr('disabled', false);
-		$('#btn2').removeClass('btnNo');
-		$('#btn3').removeClass('btnNo');
-		$('#btnNext').removeClass('btnNo');
-		
-		// show page2
-		$('#page1').hide();
-		$('#page2').fadeIn();
-		$('#btnPre').fadeIn();
-		$('#btnNext').text('正式許願！');
-		$('.btnAct').addClass('btn');
-		$('.btnAct').removeClass('btnAct');
-		$('#btn2').addClass('btnAct');
-		pageNow = 2;
-	} else {
-		// a new user
-		setTimeout(function() {
-			$('#btn2').attr('disabled', false);
-			$('#btn3').attr('disabled', false);
-			$('#btnNext').attr('disabled', false);
-			$('#btn2').removeClass('btnNo');
-			$('#btn3').removeClass('btnNo');
-			$('#btnNext').removeClass('btnNo');
-		}, 165000);
-	}
+	console.log(pageNow);
 });
 
 $('#btnPre').click(function() {
-	if (pageNow === 1) {
-		// do nothing
-	} else if (pageNow === 2) {
-		$('#page1').fadeIn();
-		$('#page2').hide();
-		$('#btnPre').hide();
-		$('#btnNext').text('ＮＥＸＴ');
-		$('.btnAct').addClass('btn');
-		$('.btnAct').removeClass('btnAct');
-		$('#btn1').addClass('btnAct');
-		pageNow = 1;
+	if (pageNow === '/index2.html') {
+		window.location.href = 'index.html';
 	}
 });
 $('#btn1').click(function() {
-	if (pageNow === 1) {
-		// do nothing
-	} else {
-		$('#page1').fadeIn();
-		$('#page2').hide();
-		$('#btnPre').hide();
-		$('#btnNext').text('ＮＥＸＴ');
-		$('.btnAct').addClass('btn');
-		$('.btnAct').removeClass('btnAct');
-		$('#btn1').addClass('btnAct');
-		pageNow = 1;
+	if (pageNow != '/index.html' || pageNow != '/') {
+		window.location.href = 'index.html';
 	}
 });
 $('#btn2').click(function() {
-	if (pageNow === 2) {
-		// do nothing
-	} else {
-		$('#page1').hide();
-		$('#page2').fadeIn();
-		$('#btnPre').fadeIn();
-		$('#btnNext').text('正式許願！');
-		$('.btnAct').addClass('btn');
-		$('.btnAct').removeClass('btnAct');
-		$('#btn2').addClass('btnAct');
-		pageNow = 2;
+	if (pageNow != '/index2.html') {
+		window.location.href = 'index2.html';
 	}
 });
 $('#btn3').click(function() {
 	window.location.href = 'wish1.html';
 });
 $('#btnNext').click(function() {
-	if (pageNow === 2) {
+	if (pageNow === '/index2.html') {
 		// prepare to page3
 		window.location.href = 'wish1.html';
-	} else if (pageNow === 1) {
-		$('#page1').hide();
-		$('#page2').fadeIn();
-		$('#btnPre').fadeIn();
-		$('#btnNext').text('正式許願！');
-		$('.btnAct').addClass('btn');
-		$('.btnAct').removeClass('btnAct');
-		$('#btn2').addClass('btnAct');
-		pageNow = 2;
+	} else if (pageNow === '/index.html' || pageNow === '/') {
+		window.location.href = 'index2.html';
 	}
 });
 
