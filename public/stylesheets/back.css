@@ -133,6 +133,7 @@ tbody {
 	cursor: pointer;
 	color: #c37206;
 	padding: 20px;
+	white-space: nowrap;
 }
 
 .mod:hover {
