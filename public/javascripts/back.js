@@ -48,10 +48,18 @@ $(document).ready(function() {
 $('#tag1').click(function() {
 	$('#page1').fadeIn();
 	$('#page2').hide();
+	$('#tag2').addClass('tag');
+	$('#tag2').removeClass('tagAct');
+	$('#tag1').addClass('tagAct');
+	$('#tag1').removeClass('tag');
 });
 $('#tag2').click(function() {
 	$('#page1').hide();
 	$('#page2').fadeIn();
+	$('#tag1').addClass('tag');
+	$('#tag1').removeClass('tagAct');
+	$('#tag2').addClass('tagAct');
+	$('#tag2').removeClass('tag');
 });
 
 function loadTable() {

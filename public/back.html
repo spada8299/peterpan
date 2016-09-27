@@ -10,13 +10,13 @@
 		<nav>
 			<ul>
 				<li class="title">RMT 彼得潘後台</li>
-				<li class="tag" id="tag1">新增序號</li>
-				<li class="tag" id="tag2">序號狀況列表</li>
+				<li class="tagAct" id="tag1">序號狀況列表</li>
+				<li class="tag" id="tag2">新增序號</li>
 			</ul>
 		</nav>
 	</header>
 
-	<section id="page1">
+	<section id="page2" style="display: none;">
 		<div class="content">
 			<div>
 				<span class="q">序號：</span>
@@ -29,10 +29,15 @@
 				<span class="cancel">x</span>
 			</div> -->
 			<button type="submit" class="ybtn" id="numSubmit">新增</button>
+
+			<form method="post" action="upload" enctype="multipart/form-data" style="margin-top: 5%;">
+				<input type="file" name="file">
+				<input type="submit" value="Upload" name="submitExcel">
+			</form>
 		</div>
 	</section>
 
-	<section id="page2" style="display: none;">
+	<section id="page1">
 		<div class="content">
 			<table>
 				<thead>

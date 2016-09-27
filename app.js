@@ -4,6 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var multer = require('multer');
+var xlstojson = require("xls-to-json-lc");
+var xlsxtojson = require("xlsx-to-json-lc");
+var fs = require('fs');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -34,8 +38,86 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var storage = multer.diskStorage({ //multers disk storage settings
+        destination: function (req, file, cb) {
+            cb(null, './uploads/')
+        },
+        filename: function (req, file, cb) {
+            var datetimestamp = Date.now();
+            cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1])
+        }
+    });
+var upload = multer({ //multer settings
+                storage: storage,
+                dest: './uploads/'
+            }).single('file');
+
 app.use('/', routes);
 app.use('/users', users);
+
+/** API path that will upload the files */
+    app.post('/upload', function(req, res) {
+        var exceltojson; //Initialization
+        upload(req,res,function(err){
+            if(err){
+                 console.log(err);
+                 return;
+            }
+            /** Multer gives us file info in req.file object */
+            if(!req.file){
+              console.log('err: No file passed');
+                return;
+            }
+            //start convert process
+            /** Check the extension of the incoming file and 
+             *  use the appropriate module
+             */
+            if(req.file.originalname.split('.')[req.file.originalname.split('.').length-1] === 'xlsx'){
+                exceltojson = xlsxtojson;
+            } else {
+                exceltojson = xlstojson;
+            }
+            try {
+                exceltojson({
+                    input: req.file.path, //the same path where we uploaded our file
+                    output: null, //since we don't need output.json
+                    lowerCaseHeaders:true
+                }, function(err,result){
+                    if(err) {
+                      console.log(err);
+                        return res.json({error_code:1,err_desc:err, data: null});
+                    } 
+                    try {
+                        fs.unlinkSync(req.file.path);
+                    } catch(e) {
+                        //error deleting the file
+                        console.log(e);
+                    }
+                    var allNum = [];
+                    var list = db.get('numList');
+                    for (var i = 0; i <= result.length - 1; i++) {
+                      if (result[i].num === '') {
+                        continue;
+                      } else {
+                        allNum.push({ num: result[i].num});
+                      }
+                    }
+                    list.insert(allNum, {}, function(e, d) {
+                      if (e != null) {
+                        console.log(e);
+                        res.json({data: 'err'});
+                      } else {
+                        console.log(d);
+                        res.redirect('back');
+                      }
+                    });
+                    // res.json({error_code:0,err_desc:null, data: allNum});
+                });
+            } catch (e){
+                res.json({error_code:1,err_desc:"Corupted excel file"});
+            }
+        });
+    });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
