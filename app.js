@@ -102,16 +102,20 @@ app.use('/users', users);
                         allNum.push({ num: result[i].num});
                       }
                     }
-                    list.insert(allNum, {}, function(e, d) {
-                      if (e != null) {
-                        console.log(e);
-                        res.json({data: 'err'});
-                      } else {
-                        console.log(d);
-                        res.redirect('back');
-                      }
-                    });
-                    // res.json({error_code:0,err_desc:null, data: allNum});
+                    if (allNum.length != 0) {
+                      list.insert(allNum, {}, function(e, d) {
+                        if (e != null) {
+                          console.log(e);
+                          res.json({data: 'err'});
+                        } else {
+                          console.log(d);
+                          res.redirect('back');
+                        }
+                      });
+                    } else {
+                      console.log('err: empty array');
+                      res.redirect('back');
+                    }
                 });
             } catch (e){
                 res.json({error_code:1,err_desc:"Corupted excel file"});

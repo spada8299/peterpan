@@ -18,16 +18,19 @@ router.post('/', function(req, res, next) {
 	var db = req.db;
 	var allNum = req.body.allNum;
 	var list = db.get('numList');
-
-	list.insert(allNum, {}, function(e, d) {
-		if (e != null) {
-			console.log(e);
-			res.json({data: '0'});
-		} else {
-			console.log(d);
-			res.json({data: '1'});
-		}
-	});
+	if (allNum.length != 0) {
+		list.insert(allNum, {}, function(e, d) {
+			if (e != null) {
+				console.log(e);
+				res.json({data: '0'});
+			} else {
+				console.log(d);
+				res.json({data: '1'});
+			}
+		});
+	} else {
+		res.json({data: '2'});
+	}
 });
 
 router.put('/:id', function(req, res, next) {
