@@ -17,7 +17,7 @@ $(document).ready(function() {
 		var allNum = [];
 		$('.num').each(function(index) {
 			console.log(index +': '+ $(this).val());
-			var thisNum = { 'num': $(this).val() };
+			var thisNum = { 'num': $(this).val().toLowerCase() };
 			allNum.push(thisNum);
 		});
 		console.log(allNum);

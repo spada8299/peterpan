@@ -32,7 +32,7 @@ $('#go').click(function() {
 		alert('請輸入序號');
 	} else {
 		$.ajax({
-			data: JSON.stringify({'numCheck': $('#numInput').val()}),
+			data: JSON.stringify({'numCheck': $('#numInput').val().toLowerCase() }),
 			url: '/users/numCheck',
 			method: 'POST',
 			contentType: 'application/json'
@@ -82,7 +82,7 @@ $('#submit').click(function() {
 	if (confirm('即將送出您的願望：'+ $('#wishText').val() +'\n注意：單一序號只能許願一次')) {
 		// submit
 		var pack = {
-			'num': $('#numInput').val(),
+			'num': $('#numInput').val().toLowerCase(),
 			'content': $('#wishText').val()
 		}
 		$.ajax({

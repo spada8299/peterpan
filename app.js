@@ -99,7 +99,7 @@ app.use('/users', users);
                       if (result[i].num === '') {
                         continue;
                       } else {
-                        allNum.push({ num: result[i].num});
+                        allNum.push({ num: result[i].num.toLowerCase() });
                       }
                     }
                     if (allNum.length != 0) {
