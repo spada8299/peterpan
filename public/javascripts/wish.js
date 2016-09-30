@@ -46,6 +46,8 @@ $('#go').click(function() {
 				$('#page3').hide();
 				$('#page4').fadeIn();
 				$('body').css('background-image', 'url("images/background2.gif")');
+				$('footer').css('margin-top', '5%');
+				$('footer').css('margin-bottom', '10%');
 			} else if (res.data === '2') {
 				alert('無此序號');
 			} else if (res.data === '3') {
@@ -53,6 +55,8 @@ $('#go').click(function() {
 				$('#page3').hide();
 				$('#page4').fadeIn();
 				$('body').css('background-image', 'url("images/background2.gif")');
+				$('footer').css('margin-top', '5%');
+				$('footer').css('margin-bottom', '10%');
 				$('#wishText').hide();
 				$('#submit').hide();
 				$('#hint').css('margin-top', 0);
