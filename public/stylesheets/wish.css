@@ -85,6 +85,7 @@ footer {
     background-color: black;
     border: #ffe695 5px solid;
     padding: 10px 0 10px 0;
+    width: 70%;
 }
 
 .input button {
