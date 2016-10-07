@@ -57,6 +57,7 @@ $('#go').click(function() {
 				$('body').css('background-image', 'url("images/background2.gif")');
 				$('footer').css('margin-top', '5%');
 				$('footer').css('margin-bottom', '10%');
+				$('#warning').hide();
 				$('#wishText').hide();
 				$('#submit').hide();
 				$('#hint').css('margin-top', 0);
@@ -113,6 +114,7 @@ $('#submit').click(function() {
 					height: "toggle",
 					width: "toggle"
 				}, 1000, function() {
+					$('#warning').hide();
 					$('#myLight').fadeIn();
 					$('#hint').css('margin-top', 0);
 				});
@@ -128,13 +130,13 @@ $('#submit').click(function() {
 });
 
 $('#btnPre').click(function() {
-	window.location.href = 'index2.html';
+	window.location.href = 'index.html';
 });
 $('#btn1').click(function() {
 	window.location.href = 'index.html';
 });
 $('#btn2').click(function() {
-	window.location.href = 'index2.html';
+	// window.location.href = 'index2.html';
 });
 $('#btn3').click(function() { });
 

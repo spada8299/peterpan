@@ -16,20 +16,22 @@ $('#btn1').click(function() {
 	}
 });
 $('#btn2').click(function() {
-	if (pageNow != '/index2.html') {
-		window.location.href = 'index2.html';
-	}
+	// if (pageNow != '/index2.html') {
+	// 	window.location.href = 'index2.html';
+	// }
+  window.location.href = 'wish1.html';
 });
 $('#btn3').click(function() {
 	window.location.href = 'wish1.html';
 });
 $('#btnNext').click(function() {
-	if (pageNow === '/index2.html') {
-		// prepare to page3
-		window.location.href = 'wish1.html';
-	} else if (pageNow === '/index.html' || pageNow === '/') {
-		window.location.href = 'index2.html';
-	}
+	// if (pageNow === '/index2.html') {
+	// 	// prepare to page3
+	// 	window.location.href = 'wish1.html';
+	// } else if (pageNow === '/index.html' || pageNow === '/') {
+	// 	window.location.href = 'index2.html';
+	// }
+  window.location.href = 'wish1.html';
 });
 
 function getValue(varname) {

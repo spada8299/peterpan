@@ -98,7 +98,7 @@ footer {
 
 textarea {
     width: 70%;
-    margin-top: 125%;
+    /*margin-top: 125%;*/
     border-radius: 1em;
     font-size: 2em;
     padding: 4%;
