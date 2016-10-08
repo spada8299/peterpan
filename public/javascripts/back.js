@@ -97,7 +97,9 @@ function loadTable() {
 			$(this).parent().parent().find('.numInput').fadeIn();
 			$(this).parent().parent().find('.numInput').focus();
 			$(this).parent().find('.modCancel').fadeIn();
+			$(this).parent().find('.modCancel').css('display', 'inline-block');
 			$(this).parent().find('.modConfirm').fadeIn();
+			$(this).parent().find('.modConfirm').css('display', 'inline-block');
 			$(this).parent().find('.mod').hide();
 		});
 		$('.modCancel').click(function() {
