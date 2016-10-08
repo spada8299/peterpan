@@ -96,7 +96,7 @@ app.use('/users', users);
                     var allNum = [];
                     var list = db.get('numList');
                     for (var i = 0; i <= result.length - 1; i++) {
-                      if (result[i].num === '') {
+                      if (result[i].num === '' || result[i].num === undefined) {
                         continue;
                       } else {
                         allNum.push({ num: result[i].num.toLowerCase() });
@@ -109,12 +109,12 @@ app.use('/users', users);
                           res.json({data: 'err'});
                         } else {
                           console.log(d);
-                          res.redirect('back');
+                          res.redirect('/back.html');
                         }
                       });
                     } else {
                       console.log('err: empty array');
-                      res.redirect('back');
+                      res.redirect('/back.html');
                     }
                 });
             } catch (e){
