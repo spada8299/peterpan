@@ -74,6 +74,7 @@ $('#go').click(function() {
 						$('#myLight img').click(function() {
 							$('#msgText').text(resp.content[0].content);
 							$('#msg').fadeIn();
+							return false;
 						});
 					}
 				});
@@ -121,6 +122,7 @@ $('#submit').click(function() {
 				$('#myLight img').click(function() {
 					$('#msgText').text($('#wishText').val());
 					$('#msg').fadeIn();
+					return false;
 				});
 			}
 		});
