@@ -71,7 +71,7 @@ $('#go').click(function() {
 					if (resp.data === '0') {
 						// err
 					} else if (resp.data === '1') {
-						$('#myLight').click(function() {
+						$('#myLight img').click(function() {
 							$('#msgText').text(resp.content[0].content);
 							$('#msg').fadeIn();
 						});
@@ -118,7 +118,7 @@ $('#submit').click(function() {
 					$('#myLight').fadeIn();
 					$('#hint').css('margin-top', 0);
 				});
-				$('#myLight').click(function() {
+				$('#myLight img').click(function() {
 					$('#msgText').text($('#wishText').val());
 					$('#msg').fadeIn();
 				});
