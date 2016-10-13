@@ -120,7 +120,7 @@ router.post('/wish', function(req, res, next) {
 router.get('/wish', function(req, res, next) {
 	var db = req.db;
 	var list = db.get('numList');
-	list.find({ content: { $exists: true } }, { 'limit': 7 }, function(e, d) {
+	list.find({ content: { $exists: true } }, { 'sort': { $natural : -1 }, 'limit': 7 }, function(e, d) {
 		if (e != null) {
 			console.log(e);
 			res.json({data: '0'});
